@@ -1,0 +1,21 @@
+language: python
+
+sudo: required
+
+services:
+  - docker
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESSKEYID
+  secret_access_key:
+    secure: "$SECRETACCESSKEY"
+  region: "eu-central-1"
+  app: "vcra.me"
+  env: "vcra"
+  bucket_name: "elasticbeanstalk-eu-central-1-615327413834"
+  on:
+    branch: master
+
+after_deploy:
+  - echo "Deployment Successfull"
