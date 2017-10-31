@@ -1,19 +1,14 @@
 language: python
-
 python:
-  - 3.6
-
+- 3.6
 script:
-  - pytest
-
+- pytest
 sudo: required
-
 services:
-  - docker
-
+- docker
 deploy:
   provider: elasticbeanstalk
-  access_key_id: $ACCESSKEYID
+  access_key_id: "$ACCESSKEYID"
   secret_access_key:
     secure: "$SECRETACCESSKEY"
   region: "eu-central-1"
@@ -22,6 +17,6 @@ deploy:
   bucket_name: "elasticbeanstalk-eu-central-1-615327413834"
   on:
     branch: master
-
 after_deploy:
-  - echo "Deployment Successfull"
+- echo "Deployment Successfull"
+
